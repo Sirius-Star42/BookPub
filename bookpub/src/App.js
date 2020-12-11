@@ -1,17 +1,34 @@
 import React, {useState, useEffect} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
-import {Card} from './Components/Card';
 import './App.css';
+import FullWidthGrid from './Components/GridSurface/GridSurface';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
 
 
+export default function App() {
+  const classes = useStyles();
 
-function App() {
-  const [bookData, setbookData] =useState([]);
+  const [bookData, setbookData] = useState([]);
+
 
   const fetchBooks = () => {
-    axios.get("https://api.nytimes.com/svc/books/v3/lists/overview.json?published_date=2012-12-08&api-key=7hfOFGALLGSAwSOPuN3R2ClK1XtuMLhG")
+    axios.get("https://api.nytimes.com/svc/topstories/v2/books.json?api-key=7hfOFGALLGSAwSOPuN3R2ClK1XtuMLhG")
+
+    
     .then(response => {
-      setbookData(response.data.results.lists)
+      setbookData(response.data.results)
       
     })
     .catch(err=> {
@@ -23,19 +40,19 @@ function App() {
     fetchBooks()
   }, [])
 
- console.log(bookData)
- 
+  console.log(bookData)
   return (
-    <div className="Container">
-
-      
-      {bookData.map((book) => <Card image={book}/>
-      
-        
+    <div className={classes.root}>
+      <Grid container spacing={1}  >
+      <Grid item xs={12} sm={12}>
+            Book Pub
+        </Grid>
+        {bookData.map( d =>
+          <FullWidthGrid data={d}/>
         )}
-      
+      </Grid>
     </div>
   );
 }
 
-export default App;
+
