@@ -43,9 +43,9 @@ export default function App() {
   console.log(bookData)
   return (
     <div className={classes.root}>
-      <Grid container spacing={1}  >
-      <Grid item xs={12} sm={12}>
-            Book Pub
+      <Grid container spacing={1} justify="center" >
+        <Grid item xs={12} sm={12}>
+            Book Publication
         </Grid>
         {bookData.map( d =>
           <FullWidthGrid data={d}/>
