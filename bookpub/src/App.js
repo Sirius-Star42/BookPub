@@ -5,6 +5,8 @@ import axios from 'axios';
 import './App.css';
 import FullWidthGrid from './Components/GridSurface/GridSurface';
 
+import Signup from "./pages/Signup";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -43,6 +45,8 @@ export default function App() {
   console.log(bookData)
   return (
     <div className={classes.root}>
+
+      <Signup/>
       <Grid container spacing={1} justify="center" >
         <Grid item xs={12} sm={12}>
             Book Publication
