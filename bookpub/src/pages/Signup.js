@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Container, Grid, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useFormik  } from "formik";
-import { Email } from '@material-ui/icons';
 
 const styles = makeStyles({
     wrapper: {
@@ -69,7 +68,11 @@ function Signup() {
                     </Button>
                 </Grid>
                 <Grid item xs={12}>
-                    <Button variant="contained" color="primary" fullWidth>Signup with Google</Button>
+                    <Button variant="contained"
+                    color="primary" 
+                    fullWidth>
+                        Signup with Google
+                    </Button>
                 </Grid>
             </Grid>
             </form>
