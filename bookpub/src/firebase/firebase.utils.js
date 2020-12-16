@@ -1,15 +1,18 @@
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCkCEQr_Ip4e1XdhXk8iapPZDeSLAILKkw",
-//   authDomain: "sirius-firebase-9dabc.firebaseapp.com",
-//   databaseURL: "https://sirius-firebase-9dabc.firebaseio.com",
-//   projectId: "sirius-firebase-9dabc",
-//   storageBucket: "sirius-firebase-9dabc.appspot.com",
-//   messagingSenderId: "730597096196",
-//   appId: "1:730597096196:web:3e76739d89db283ecb6e51"
-// };
-
 import firebase from 'firebase/app';
 
-firebase.initializeApp(fire) {
+const devConfig = {
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET_ID,
+  messagingSenderId: process.env.REACT_MESAGING_SENDER_ID,
+  appId: process.env.REACT_APP_ID
+};
 
-}
+const prodConfig = {};
+
+const config = process.env.NODE_ENV === "development" ? devConfig : prodConfig;
+
+firebase.initializeApp(config);
+

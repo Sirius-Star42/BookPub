@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import PrimarySearchAppBar from './Components/PrimarySearchAppBar/PrimarySearchAppBar';
 import Signup from "./pages/Signup";
 
 
@@ -25,8 +26,10 @@ export default function App() {
     fetchBooks()
   }, [])
 
+  console.log(process.env)
   return (
     <div >
+      <PrimarySearchAppBar/>
       <Signup/>
      
     </div>
