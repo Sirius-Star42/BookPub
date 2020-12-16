@@ -59,7 +59,7 @@ export default function RecipeReviewCard(props) {
       />
       <CardMedia
         className={classes.media}
-        image={props.cardData.multimedia[0].url}
+        // image={props.cardData.multimedia[0]}
         title="Paella dish"
       />
       <CardContent>
@@ -95,4 +95,4 @@ export default function RecipeReviewCard(props) {
       </Collapse>
     </Card>
   );
-}
+};
